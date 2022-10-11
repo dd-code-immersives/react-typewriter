@@ -88,7 +88,7 @@ const KeyboardGrid = (props) => {
 		console.log(event.key)
   };
 
-	
+	/* The following lines for the useRef and useEffect are serving a single purpose for us, it is getting the div in the JSX of <KeyboardGrid/> and focusing it on page load.*/
   const ref = useRef(null);
 
   useEffect(() => {
@@ -103,10 +103,30 @@ const KeyboardGrid = (props) => {
 			onKeyDown={handleKeyDown}
       onKeyUp={handleKeyUp}
     >
-
+			{keyRows.map((keyRow, index)=>{
+				return <KeyboardRow keyRow={keyRow} key={index}/>
+			})}
     </div>
   );
 };
+
+const KeyboardRow = (props) => {
+	return (
+		<div className="Keyboard-row">
+			{props.keyRow.map((keyObject, index)=>{
+				return <KeyboardKey keyObject={keyObject} key={index}/>
+			})}
+		</div>
+	)
+}
+
+const KeyboardKey = (props) => {
+	return (
+		<div className="Keyboard-key">
+			{props.keyObject.letter}
+		</div>
+	)
+}
 
 export default App;
 
