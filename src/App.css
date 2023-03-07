@@ -13,7 +13,7 @@
 	display: flex;
   justify-content: center;
   align-items: center;
-  flex-grow: 1;
+  flex: 1;
   border-radius: 10%;
   padding: 7px 18px;
   margin: 3px;
@@ -23,9 +23,16 @@
 }
 
 .Keyboard-row {
-
+ display: flex;
+ flex-direction: row;
+ justify-content: space-around;
 }
 
-.Keyboard-grid {
-	
+.Keyboard-key.pressed {
+	background-color: white;
+	color: slategray
+}
+
+.text-display { 
+	white-space: pre-line;
 }
